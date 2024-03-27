@@ -26,5 +26,8 @@ if submitted:
         f'insert into {table_name} values ({", ".join([f":{n}" for n in col_values])})',
         col_values,
     )
-    row_count = conn.query(f"select count(1) from {table_name}", ttl=0)
+    row_count = conn.query(
+        f"select count(1) from {table_name}",
+        ttl=0,  # don't cache results so changes in the database are immediately retrieved
+    )
     st.write(f"{table_name} now has {row_count.iat[0,0]} rows.")

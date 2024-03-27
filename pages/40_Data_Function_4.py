@@ -20,5 +20,8 @@ if submitted:
         f"insert into pet_owners values (?, ?)",
         list_of_values,
     )
-    row_count = conn.query(f"select count(1) from pet_owners", ttl=0)
+    row_count = conn.query(
+        f"select count(1) from pet_owners",
+        ttl=0, # don't cache results so changes in the database are immediately retrieved
+    )
     st.write(f"pet_owners now has {row_count.iat[0,0]} rows.")

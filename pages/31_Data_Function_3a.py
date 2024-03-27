@@ -11,7 +11,7 @@ assert table_name in util.VALID_TABLE_NAMES, "Invalid table name"
 conn = util.get_connection()
 columns_df = conn.query(
     f"select name, type from pragma_table_info('{table_name}')",
-    ttl=0,  # don't cache results
+    ttl=0,  # don't cache results so changes in the database are immediately retrieved
 )
 column_name_raw = st.selectbox(
     "Column name",
@@ -24,7 +24,7 @@ value = st.text_input("Value to search")
 result_df = conn.query(
     f"select * from {table_name} where {column_name} = :value",
     params=dict(value=value),
-    ttl=0,  # don't cache results
+    ttl=0,  # don't cache results so changes in the database are immediately retrieved
 )
 
 num_rows_found = len(result_df)

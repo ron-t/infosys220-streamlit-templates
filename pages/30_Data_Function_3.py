@@ -14,7 +14,7 @@ value = st.text_input("Person name to search")
 result_df = conn.query(
     f"select * from {table_name} where person = :value",
     params=dict(value=value),
-    ttl=0,  # don't cache results
+    ttl=0,  # don't cache results so changes in the database are immediately retrieved
 )
 num_rows_found = len(result_df)
 st.write(f'{num_rows_found} row{"" if num_rows_found == 1 else "s"} found for `{value}`')

@@ -18,7 +18,7 @@ if submitted:
 
     result_df = conn.query(
         f"select * from {table_name}",
-        ttl=0,  # don't cache results
+        ttl=0,  # don't cache results so changes in the database are immediately retrieved
     )
     st.dataframe(
         result_df,
