@@ -1,7 +1,7 @@
 import streamlit as st
 from data import util
 
-st.title("Read a table (dynamic example)")
+st.title("Create and Read a table (dynamic example)")
 
 # We use a form to control when the page is (re)loaded and hence when the data is reset or retrieved.
 with st.form("form"):

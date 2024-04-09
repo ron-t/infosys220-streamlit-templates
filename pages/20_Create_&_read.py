@@ -1,9 +1,9 @@
 import streamlit as st
 from data import util
 
-st.title("Read a table")
+st.title("Create and Read a table")
 
-table_name = "..."  # edit this: choose from the VALID_TABLE_NAMES in data/util.py
+table_name = "..."  # edit this: choose a table from the VALID_TABLE_NAMES in data/util.py
 
 # We use a form to control when the page is (re)loaded and hence when the data is reset or retrieved.
 st.write(f"Table name is `{table_name}`")
@@ -32,7 +32,7 @@ if submitted:
 # exercise notes:
 # 1. hard code table name
 # 2. select table names from selectbox
-# 3. if you know sql, change the query to select something else from the table (e.g. add a where clause)
+# 3. [extra] if you know sql, change the query to select something else from the table (e.g. add a where clause)
 
 # functions 3 onwards are demo and useful to copy/paste/modify for group assignment
 # crawl, walk, run, fly framework.
