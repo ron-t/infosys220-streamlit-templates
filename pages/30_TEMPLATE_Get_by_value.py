@@ -3,7 +3,7 @@ from data import util
 
 st.title("Get pet_owner row(s) by person name")
 
-st.warning("If you see errors, ensure you've created the table(s) first using Data Function 2.")
+st.warning("If you see errors, ensure you've created the table(s) first using the `Create & read` pages.")
 
 table_name = "pet_owners"
 assert table_name in util.VALID_TABLE_NAMES, "Invalid table name"
