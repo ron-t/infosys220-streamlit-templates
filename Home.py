@@ -8,8 +8,7 @@ st.set_page_config(
 st.header("Group Assignment 035 Data App") # Change this for your group project
 st.write("Example data app for TeReoGrow system")  # Change this for your group project
 
-
-# Change the data function names and descriptions for your project project
+st.info("Please run the `create all data` page first to seed data for all other pages.")
 
 st.subheader("UC#1 F#1 - Befriend Other Users")
 st.write("Lists current friends of users (accepted only)")
