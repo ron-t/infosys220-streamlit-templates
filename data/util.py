@@ -81,23 +81,25 @@ def reset_table(conn: SQLConnection, dataset: str) -> NoReturn | None:
             s.commit()
 
 
-def create_seed_data_REPLACEME(conn: SQLConnection) -> NoReturn | str:
-    TABLE_NAME = "REPLACEME"
+def create_seed_data_uc1(conn: SQLConnection) -> NoReturn | str:
+    TABLE_NAME = "uc1"
     with conn.session as s:
         drop_sql = f"drop table if exists {TABLE_NAME}"
 
         # last column's definition must not end in a comma.
         create_sql = f"""create table {TABLE_NAME}(
-REPLACEMEcol1 TEXT,
-REPLACEMEcol2 TEXT,
-REPLACEMEcol3 TEXT
+usercode TEXT,
+friend_userid TEXT,
+invite_status TEXT
 );
 """
         # last row of data must not end in a comma.
         insert_sql = f"""insert into {TABLE_NAME} values
-('REPLACEMErow1val1', 'REPLACEMErow1val2', 'REPLACEMErow1val3'),
-('REPLACEMErow2val1', 'REPLACEMErow2val2', 'REPLACEMErow2val3'),
-('REPLACEMErow3val1', 'REPLACEMErow3val2', 'REPLACEMErow3val3')
+('nwu999', 'sfif932', 'accepted'),
+('nwu999', 'kden947', 'accepted'),
+('nwu999', 'jcha657', 'accepted'),
+('nwu999', 'tjoe921', 'requested'),
+('tjoe921', 'sfif932', 'accepted')
 ;
 """
         s.execute(drop_sql)
@@ -108,29 +110,26 @@ REPLACEMEcol3 TEXT
     return TABLE_NAME
 
 
-# Completed example for shops
-def create_seed_data_shops(conn: SQLConnection) -> NoReturn | str:
-    TABLE_NAME = "shop"
+def create_seed_data_uc2(conn: SQLConnection) -> NoReturn | str:
+    TABLE_NAME = "uc2"
     with conn.session as s:
         drop_sql = f"drop table if exists {TABLE_NAME}"
 
+        # last column's definition must not end in a comma.
         create_sql = f"""create table {TABLE_NAME}(
-shop_name TEXT,
-shop_address TEXT,
-shop_type TEXT,
-owner_contact TEXT
+coursecode TEXT,
+coursetitle TEXT,
+difficulty TEXT
 );
 """
-
+        # last row of data must not end in a comma.
         insert_sql = f"""insert into {TABLE_NAME} values
-('DountClown', '100 Queen St, Auckland', 'Retail: Grocery', 'complaints@dountclown.nz'),
-('CsColour', '5 Cuba St, Wellington', 'Service: Clothing Design', 'r.lailton@cscolour.co.nz'),
-('CsColour', '6 Cuba St, Wellington', 'Service: Clothing Design', 'r.lailton@cscolour.co.nz'),
-('CsColour', '7 Cuba St, Wellington', 'Service: Clothing Design', 'r.lailton@cscolour.co.nz'),
-('CsColour', '8 Cuba St, Wellington', 'Service: Clothing Design', 'r.lailton@cscolour.co.nz'),
-('CsColour', '9 Cuba St, Wellington', 'Service: Clothing Design', 'r.lailton@cscolour.co.nz'),
-('CsColour', '10 Cuba St, Wellington', 'Service: Clothing Design', 'r.lailton@cscolour.co.nz'),
-('CsColour', '11 Cuba St, Wellington', 'Service: Clothing Design', 'r.lailton@cscolour.co.nz')
+('Māori 101', 'Introduction to written Te Reo', 'Beginner'),
+('Māori 111', 'Introduction to spoken Te Reo', 'Beginner'),
+('Māori 115', 'Maori History', 'Beginner'),
+('Māori 140', 'Kapa Haka', 'Beginner'),
+('Māori 240', 'Kapa Haka II', 'Intemediate'),
+('Māori 340', 'Kapa Haka III', 'Advanced')
 ;
 """
         s.execute(drop_sql)

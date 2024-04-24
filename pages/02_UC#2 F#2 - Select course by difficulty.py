@@ -1,18 +1,16 @@
+
 import streamlit as st
 from data import util
 
-st.title("Get pet_owner row(s) by person name")
+st.title("UC#2 F#2 - Select course by difficulty")
 
-st.warning("If you see errors, ensure you've created the table(s) first using the `Create & read` pages.")
-
-table_name = "pet_owners"
-assert table_name in util.VALID_TABLE_NAMES, "Invalid table name"
+table_name = "uc2"
 
 conn = util.get_connection()
-value = st.text_input("Person name to search")
+value = st.text_input("course difficulty level")
 
 result_df = conn.query(
-    f"select * from {table_name} where person = :value",
+    f"select * from {table_name} where difficulty = :value",
     params=dict(value=value),
     ttl=0,  # don't cache results so changes in the database are immediately retrieved
 )
