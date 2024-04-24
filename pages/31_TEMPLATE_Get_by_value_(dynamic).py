@@ -6,7 +6,6 @@ st.title("Get row(s) by value (dynamic example)")
 st.warning("If you see errors, ensure you've created the table(s) first using the `Create & read` pages.")
 
 table_name = st.selectbox("Table name", util.VALID_TABLE_NAMES)
-assert table_name in util.VALID_TABLE_NAMES, "Invalid table name"
 
 conn = util.get_connection()
 columns_df = conn.query(
